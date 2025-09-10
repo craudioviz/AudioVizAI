@@ -280,21 +280,73 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Creator Dashboard Access */}
-      {user && (
+      {/* Admin Gateway Section */}
+      {!user && (
+        <section className="py-16 bg-gradient-to-br from-red-900/20 to-orange-900/20" data-testid="section-admin-gateway">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl mx-auto text-center">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
+                <i className="fas fa-key text-white text-2xl"></i>
+              </div>
+              <h2 className="text-3xl font-bold mb-4" data-testid="heading-admin-gateway">
+                Admin & Creator Access
+              </h2>
+              <p className="text-xl text-muted-foreground mb-8" data-testid="text-admin-subtitle">
+                System administrators and content creators sign in here to access backend tools
+              </p>
+              
+              <Link href="/auth">
+                <Button size="lg" variant="outline" className="px-8 border-red-500 text-red-400 hover:bg-red-500/10" data-testid="button-admin-login">
+                  <i className="fas fa-shield-alt mr-2"></i>
+                  Admin Login
+                </Button>
+              </Link>
+              
+              <div className="mt-6 text-sm text-muted-foreground">
+                <p>Authorized personnel only • Full system access • Javari management</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Admin Dashboard Access */}
+      {user && (user.isAdmin || user.isCreator) && (
         <section className="py-16" data-testid="section-dashboard-access">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-4" data-testid="heading-creator-dashboard">
-                Creator Dashboard
+              <h2 className="text-3xl font-bold mb-4" data-testid="heading-admin-dashboard">
+                Admin Control Center
               </h2>
               <p className="text-xl text-muted-foreground mb-8" data-testid="text-dashboard-subtitle">
-                Access your content creation and monetization tools
+                Manage Javari, CRVerse, tools, content creation and platform operations
               </p>
               
               <Link href="/dashboard">
                 <Button size="lg" className="px-8" data-testid="button-access-dashboard">
-                  Access Dashboard
+                  Access Admin Dashboard
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Customer Javari Access */}
+      {user && !user.isAdmin && !user.isCreator && (
+        <section className="py-16" data-testid="section-javari-access">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="text-3xl font-bold mb-4" data-testid="heading-javari-access">
+                Welcome Back!
+              </h2>
+              <p className="text-xl text-muted-foreground mb-8" data-testid="text-javari-subtitle">
+                Continue your conversations with Javari, your AI assistant
+              </p>
+              
+              <Link href="/chat/javari">
+                <Button size="lg" className="px-8" data-testid="button-access-javari">
+                  Chat with Javari
                 </Button>
               </Link>
             </div>

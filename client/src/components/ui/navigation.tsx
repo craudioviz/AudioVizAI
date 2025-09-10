@@ -69,7 +69,15 @@ export default function Navigation() {
                 {(user.isCreator || user.isAdmin) && (
                   <Link href="/dashboard">
                     <Button variant="outline" size="sm" data-testid="button-dashboard-nav">
-                      Dashboard
+                      Admin Dashboard
+                    </Button>
+                  </Link>
+                )}
+                
+                {user && !user.isAdmin && !user.isCreator && (
+                  <Link href="/chat/javari">
+                    <Button variant="outline" size="sm" data-testid="button-javari-access">
+                      Access Javari
                     </Button>
                   </Link>
                 )}
@@ -142,7 +150,20 @@ export default function Navigation() {
                           onClick={() => setMobileMenuOpen(false)}
                           data-testid="mobile-button-dashboard"
                         >
-                          Dashboard
+                          Admin Dashboard
+                        </Button>
+                      </Link>
+                    )}
+
+                    {user && !user.isAdmin && !user.isCreator && (
+                      <Link href="/chat/javari">
+                        <Button 
+                          className="w-full"
+                          variant="outline" 
+                          onClick={() => setMobileMenuOpen(false)}
+                          data-testid="mobile-button-javari"
+                        >
+                          Access Javari
                         </Button>
                       </Link>
                     )}

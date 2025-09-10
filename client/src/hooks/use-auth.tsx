@@ -38,6 +38,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     },
     onSuccess: (user: SelectUser) => {
       queryClient.setQueryData(["/api/user"], user);
+      
+      // Redirect based on user type
+      if (user.isAdmin || user.isCreator) {
+        window.location.href = "/dashboard";
+      } else {
+        // Regular customers go to Javari access
+        window.location.href = "/chat/javari";
+      }
     },
     onError: (error: Error) => {
       toast({
