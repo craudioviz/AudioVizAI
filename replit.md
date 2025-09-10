@@ -2,7 +2,7 @@
 
 ## Overview
 
-CRAudioVizAI is a comprehensive AI solutions provider offering tools, apps, website creation, and immersive avatar experiences through CRVerse. The platform features Javari, an autonomous continuously learning AI assistant, and CRVerse as the avatar universe module. CRAudioVizAI serves individuals, families, small businesses, nonprofits, and governments with AI-powered solutions, personalized assistance, education, and business growth services.
+CRAudioVizAI is a comprehensive AI solutions provider offering tools, apps, website creation, and immersive avatar experiences through CRAIverse. The platform features Javari, an autonomous continuously learning AI assistant, and CRAIverse as the avatar universe module governed by CRAI. CRAudioVizAI serves individuals, families, small businesses, nonprofits, and governments with AI-powered solutions, personalized assistance, education, and business growth services.
 
 The system is built as a full-stack application with a React frontend, Express/FastAPI backend, PostgreSQL database with vector extensions, and integrates multiple third-party services for avatar generation, payments, and automation.
 
@@ -51,7 +51,7 @@ Preferred communication style: Simple, everyday language.
 ### AI and Avatar Services
 - **Akool**: Avatar visual generation
 - **ElevenLabs**: Voice synthesis for avatars
-- **OpenAI/Anthropic**: Potential LLM integrations for Javari
+- **OpenAI/Anthropic**: Potential LLM integrations for Javari and CRAI governance systems
 
 ### Payment Processing
 - **Stripe**: Primary payment processor for subscriptions and one-time purchases

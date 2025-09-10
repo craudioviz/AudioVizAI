@@ -170,8 +170,8 @@ export default function HomePage() {
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
                   <i className="fas fa-globe text-white text-2xl"></i>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">CRVerse Avatar World</h3>
-                <p className="text-sm text-muted-foreground mb-4">Immersive avatar experiences and digital universes</p>
+                <h3 className="text-lg font-semibold mb-2">CRAIverse Avatar World</h3>
+                <p className="text-sm text-muted-foreground mb-4">Immersive avatar experiences governed by CRAI</p>
                 <Badge variant="default" className="mb-2">Live Now</Badge>
               </CardContent>
             </Card>
@@ -184,10 +184,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4" data-testid="heading-universe">
-              CRVerse: Our Avatar Universe
+              CRAIverse: Our Avatar Universe
             </h2>
             <p className="text-xl text-muted-foreground" data-testid="text-universe-subtitle">
-              Immersive avatar experiences with content for every audience and appropriate ratings
+              Immersive avatar experiences governed by CRAI with content for every audience and appropriate ratings
             </p>
           </div>
 
@@ -212,7 +212,7 @@ export default function HomePage() {
               Creator Economy
             </h2>
             <p className="text-xl text-muted-foreground" data-testid="text-creator-subtitle">
-              Monetize your creativity across all CRAudioVizAI platforms and CRVerse experiences
+              Monetize your creativity across all CRAudioVizAI platforms and CRAIverse experiences
             </p>
           </div>
 
@@ -373,7 +373,7 @@ export default function HomePage() {
             <div data-testid="footer-solutions">
               <h4 className="font-semibold mb-4">Solutions</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/universe/family-zone" className="hover:text-foreground transition-colors">CRVerse Avatar World</Link></li>
+                <li><Link href="/universe/family-zone" className="hover:text-foreground transition-colors">CRAIverse Avatar World</Link></li>
                 <li><Link href="/universe/creative-studio" className="hover:text-foreground transition-colors">AI Tools & Apps</Link></li>
                 <li><Link href="/universe/business-hub" className="hover:text-foreground transition-colors">Website Creation</Link></li>
                 <li><Link href="/universe/entertainment" className="hover:text-foreground transition-colors">Business Solutions</Link></li>

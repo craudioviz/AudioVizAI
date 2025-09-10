@@ -241,7 +241,7 @@ export default function AuthPage() {
             </div>
             <div className="flex items-center justify-center space-x-2">
               <i className="fas fa-check text-green-400"></i>
-              <span>CRVerse avatar experiences</span>
+              <span>CRAIverse avatar experiences</span>
             </div>
             <div className="flex items-center justify-center space-x-2">
               <i className="fas fa-check text-green-400"></i>

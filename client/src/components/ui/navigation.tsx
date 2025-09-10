@@ -17,7 +17,7 @@ export default function Navigation() {
 
   const navLinks = [
     { href: "/#solutions", label: "Solutions" },
-    { href: "/#universe", label: "CRVerse" },
+    { href: "/#universe", label: "CRAIverse" },
     { href: "/#avatars", label: "Live Avatars" },
     { href: "/#creators", label: "Creators" },
   ];

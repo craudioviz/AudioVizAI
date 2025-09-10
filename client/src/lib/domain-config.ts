@@ -1,5 +1,5 @@
 // Domain-based configuration and routing
-export type DomainType = 'craudiovizai' | 'javariai' | 'crverse' | 'tools' | 'create' | 'business' | 'localhost';
+export type DomainType = 'craudiovizai' | 'javariai' | 'craiverse' | 'tools' | 'create' | 'business' | 'localhost';
 
 export interface DomainConfig {
   type: DomainType;
@@ -14,7 +14,7 @@ export function getCurrentDomain(): DomainType {
   const hostname = window.location.hostname.toLowerCase();
   
   if (hostname.includes('javariai')) return 'javariai';
-  if (hostname.includes('crverse')) return 'crverse';
+  if (hostname.includes('craiverse')) return 'craiverse';
   if (hostname.includes('tools')) return 'tools';
   if (hostname.includes('create')) return 'create';
   if (hostname.includes('business')) return 'business';
@@ -38,10 +38,10 @@ export const domainConfigs: Record<DomainType, DomainConfig> = {
     redirectUnauth: '/auth',
     defaultAuthRedirect: '/chat/javari'
   },
-  crverse: {
-    type: 'crverse',
-    name: 'CRVerse',
-    description: 'Avatar universe and digital experiences',
+  craiverse: {
+    type: 'craiverse',
+    name: 'CRAIverse',
+    description: 'Avatar universe governed by CRAI with immersive digital experiences',
     requiresAuth: true,
     redirectUnauth: '/auth',
     defaultAuthRedirect: '/universe'
@@ -90,8 +90,8 @@ export function getAuthRedirect(isAdmin: boolean, isCreator: boolean): string {
     return (isAdmin || isCreator) ? '/dashboard' : '/chat/javari';
   }
   
-  if (domain === 'crverse') {
-    // CRVerse domain: all users go to universe
+  if (domain === 'craiverse') {
+    // CRAIverse domain: all users go to universe
     return '/universe';
   }
   

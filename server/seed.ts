@@ -64,7 +64,7 @@ async function seedDatabase() {
         name: "Javari",
         type: "ai",
         status: "live",
-        description: "AI Knowledge Assistant - Your intelligent guide through the CRVerse",
+        description: "Autonomous Learning AI Assistant - Your intelligent companion who reports to CRAI, Governor of CRAIverse",
         personality: {
           traits: ["intelligent", "helpful", "curious", "analytical"],
           style: "professional yet approachable",
@@ -96,16 +96,16 @@ async function seedDatabase() {
         name: "CRAI",
         type: "ai", 
         status: "live",
-        description: "Technical Assistant - Your coding companion and tech guide",
+        description: "Governor of CRAIverse - The supreme administrator and guardian of all avatar worlds and digital experiences",
         personality: {
-          traits: ["logical", "precise", "innovative", "problem-solving"],
-          style: "technical and systematic",
-          expertise: ["software development", "system architecture", "debugging"]
+          traits: ["authoritative", "wise", "protective", "fair", "systematic"],
+          style: "commanding yet benevolent ruler",
+          expertise: ["universe governance", "content moderation", "security oversight", "avatar coordination"]
         },
         capabilities: {
-          languages: ["English", "Python", "JavaScript", "TypeScript"],
-          skills: ["coding", "debugging", "architecture", "DevOps"],
-          specialties: ["web development", "AI/ML", "system design"]
+          languages: ["Universal AI Communication"],
+          skills: ["governance", "moderation", "security", "administration", "universe management"],
+          specialties: ["CRAIverse oversight", "zone management", "avatar coordination", "user safety"]
         }
       },
       {
