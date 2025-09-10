@@ -1,0 +1,33 @@
+<mxfile host="app.diagrams.net" modified="2025-09-08T15:38:41.660530" agent="python" version="22.0.3">
+  <diagram id="CRAV-Arch" name="Architecture">
+    <mxGraphModel dx="1280" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/><mxCell id="1" parent="0"/>
+        <mxCell id="zone_channels" value="ZONE: Channels &amp; Audience" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="20" y="20" width="1880" height="200" as="geometry"/></mxCell>
+        <mxCell id="zone_web" value="ZONE: Web &amp; Domain" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="20" y="230" width="1880" height="160" as="geometry"/></mxCell>
+        <mxCell id="zone_app" value="ZONE: Application Layer" style="rounded=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1"><mxGeometry x="20" y="400" width="1880" height="160" as="geometry"/></mxCell>
+        <mxCell id="zone_data" value="ZONE: Data Layer" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1"><mxGeometry x="20" y="570" width="1880" height="160" as="geometry"/></mxCell>
+        <mxCell id="zone_ops" value="ZONE: Integrations &amp; Backup" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1"><mxGeometry x="20" y="740" width="1880" height="160" as="geometry"/></mxCell>
+        <!-- Nodes -->
+        <mxCell id="users" value="End Users" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="60" y="80" width="220" height="60" as="geometry"/></mxCell>
+        <mxCell id="social" value="Social Channels" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="300" y="80" width="220" height="60" as="geometry"/></mxCell>
+        <mxCell id="drive" value="Branding Docs (Drive)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="540" y="80" width="220" height="60" as="geometry"/></mxCell>
+        <mxCell id="hostinger" value="Hostinger (DEV→PROD)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="60" y="280" width="220" height="60" as="geometry"/></mxCell>
+        <mxCell id="javari" value="Javari API (FastAPI)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="300" y="450" width="220" height="60" as="geometry"/></mxCell>
+        <mxCell id="ingest" value="Ingestion Workers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="60" y="450" width="220" height="60" as="geometry"/></mxCell>
+        <mxCell id="pg" value="PostgreSQL + pgvector" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="60" y="620" width="240" height="60" as="geometry"/></mxCell>
+        <mxCell id="fs" value="Filesystem (Hostinger)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="320" y="620" width="240" height="60" as="geometry"/></mxCell>
+        <mxCell id="bkp" value="Backups: Local, Hostinger, S3(on hold)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="600" y="790" width="300" height="60" as="geometry"/></mxCell>
+        <!-- Edges -->
+        <mxCell id="e1" edge="1" source="users" target="hostinger" style="endArrow=block;strokeWidth=2;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" edge="1" source="social" target="ingest" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" edge="1" source="drive" target="ingest" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" edge="1" source="ingest" target="pg" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" edge="1" source="javari" target="pg" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" edge="1" source="javari" target="fs" style="endArrow=block;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" edge="1" source="pg" target="bkp" style="endArrow=block;dashed=1;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e8" edge="1" source="fs" target="bkp" style="endArrow=block;dashed=1;"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

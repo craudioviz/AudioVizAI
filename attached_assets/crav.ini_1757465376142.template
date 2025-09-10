@@ -1,0 +1,86 @@
+# =========================
+# CRAudioVizAI Secrets (crav.ini) - TEMPLATE
+# Place this file ONLY on your PC and server:
+#   Windows: C:\CRAV\secrets\crav.ini
+#   Linux:   /home/<user>/.secrets/crav.ini
+# NEVER share this file or paste values into chat.
+# Grant Javari access by filling keys below (least-privilege).
+# =========================
+
+[meta]
+owner=Roy Henderson
+approvers=royhenderson@craudiovizai.com,cindy@craudiovizai.com
+env=prod
+
+# ---- Google ----
+[google]
+# Use a Service Account JSON and share ONLY the safe Drive folder with it
+# Put the JSON path here (server-local path)
+service_account_json=/home/<user>/.secrets/google-service-account.json
+drive_safe_folder_id=REPLACE_ME  # CRAV_KB_SEED folder ID
+# Optional: Gmail/Mail settings if needed later
+api_scopes=drive.readonly,drive.file
+
+# ---- GitHub ----
+[github]
+# PAT with minimal scopes: repo (for private repos), read:org if needed
+token=REPLACE_ME
+org=craudiovizai
+repo=crav-javari
+
+# ---- Mailchimp ----
+[mailchimp]
+api_key=REPLACE_ME
+server_prefix=usX
+audience_id=REPLACE_ME
+
+# ---- Zapier / Webhooks ----
+[zapier]
+inbound_webhook_url=REPLACE_ME
+outbound_webhook_url=REPLACE_ME
+
+# ---- Stripe ----
+[stripe]
+secret_key=REPLACE_ME
+webhook_secret=REPLACE_ME
+
+# ---- PayPal ----
+[paypal]
+client_id=REPLACE_ME
+client_secret=REPLACE_ME
+webhook_id=REPLACE_ME
+
+# ---- Twilio ----
+[twilio]
+account_sid=REPLACE_ME
+auth_token=REPLACE_ME
+from_number=+1REPLACEME
+
+# ---- Akool (Avatars) ----
+[akool]
+api_key=REPLACE_ME
+
+# ---- ElevenLabs (Voice) ----
+[elevenlabs]
+api_key=REPLACE_ME
+voice_id=REPLACE_ME
+
+# ---- Supabase ----
+[supabase]
+url=REPLACE_ME
+anon_key=REPLACE_ME
+service_role_key=REPLACE_ME
+
+# ---- Social Posting (prefer Buffer/Hypefury/etc. to avoid many keys) ----
+[buffer]
+access_token=REPLACE_ME  # Optional aggregator for IG/Twitter/LinkedIn/FB scheduling
+
+# ---- Discord Bot (optional) ----
+[discord]
+bot_token=REPLACE_ME
+guild_id=REPLACE_ME
+
+# ---- Misc ----
+[web]
+search_console_site_url=https://your-domain.com
+analytics_measurement_id=G-XXXXXXX

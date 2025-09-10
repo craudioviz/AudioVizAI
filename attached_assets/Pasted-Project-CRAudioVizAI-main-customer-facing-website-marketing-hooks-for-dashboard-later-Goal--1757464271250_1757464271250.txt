@@ -1,0 +1,129 @@
+Project: CRAudioVizAI — main customer-facing website (marketing) + hooks for dashboard later.
+
+Goal (MVP for this Repl):
+
+Public marketing site with hero, product explainer, CTAs, and working routing.
+
+Pages: Home, About, Solutions, Pricing, RSS (stub), “Meet Javari” page with link to external app.
+
+Components: Header, Footer, Social bar, Email capture form (POST /api/subscribe stub).
+
+Responsive, clean UI with Tailwind.
+
+Core functionality (website):
+
+Static/SSR Next.js pages
+
+Email capture (POST stub now; we’ll later forward to CRM)
+
+Nav + mobile menu
+
+Placeholder images/slots for avatars & brand
+
+SEO basics (title/description)
+
+AI components (for later):
+
+None required in website MVP. Just link out to Javari at https://javariai.com via NEXT_PUBLIC_JAVARI_APP_URL.
+
+User interface:
+
+Modern, minimal design; sticky header; hero + CTA; sections for “Avatar World”, “Products in progress”
+
+Color: neutral gray/white; accent black/blue
+
+Mobile-first responsive
+
+Technical preferences:
+
+Frontend: Next.js (App Router) + TypeScript + Tailwind CSS
+
+API stubs: Next.js route handlers under /api
+
+Env var: NEXT_PUBLIC_JAVARI_APP_URL=https://javariai.com
+
+Assets: /public/brand/logo.png, /public/avatars/{javari,kairo,crai}.png (placeholders OK)
+
+Routing structure:
+
+/ → marketing home
+
+/company/about
+
+/solutions
+
+/pricing
+
+/rss (stub list)
+
+/javari (intro page + button to external app)
+
+/app/redirect (client page that redirects to NEXT_PUBLIC_JAVARI_APP_URL)
+
+/api/subscribe (POST stub → returns {ok:true})
+
+Acceptance criteria:
+
+Running dev server shows Home with hero + buttons (“Meet Javari”, “Learn more about us”)
+
+Nav links work without 404
+
+/api/subscribe returns 200 JSON on POST
+
+Mobile menu works
+
+Builds and runs with npm run build && npm run start -p $PORT -H 0.0.0.0
+
+Deployment notes:
+
+This Repl is for building the website UI. GitHub/Hostinger CI is handled outside Replit (repos already set up: craudioviz/crav-site).
+
+Keep commands standard so CI can reuse:
+
+Build: npm run build
+
+Start: npm run start -p $PORT -H 0.0.0.0
+
+Please generate:
+
+Project setup:
+
+Next.js (App Router) + TS + Tailwind configured
+
+package.json scripts:
+
+"dev": "next dev -p 3000 -H 0.0.0.0"
+
+"build": "next build"
+
+"start": "next start -p 3000 -H 0.0.0.0"
+
+.env with NEXT_PUBLIC_JAVARI_APP_URL=https://javariai.com
+
+Components:
+
+src/components/Header.tsx, Footer.tsx, SocialBar.tsx, SubscribeForm.tsx
+
+Pages & layouts:
+
+src/app/(marketing)/layout.tsx, src/app/(marketing)/page.tsx
+
+src/app/javari/page.tsx
+
+src/app/company/about/page.tsx
+
+src/app/solutions/page.tsx
+
+src/app/pricing/page.tsx
+
+src/app/rss/page.tsx
+
+src/app/app/redirect/page.tsx (client component: on mount, redirect to env URL)
+
+API route:
+
+src/app/api/subscribe/route.ts (POST → {ok:true})
+
+Assets:
+
+Create empty/placeholder files for /public/brand/logo.png and /public/avatars/{javari,kairo,crai}.png if not provided.

@@ -1,0 +1,68 @@
+# Execution & Access Policies for Javari (RBAC + Approvals)
+version: 1
+approvers:
+  - royhenderson@craudiovizai.com
+  - cindy@craudiovizai.com
+
+rbac:
+  roles:
+    reader:
+      can:
+        - fetch_content
+        - list_sources
+    editor:
+      can:
+        - create_draft_content
+        - queue_posts
+        - start_ingest
+    operator:
+      can:
+        - run_deploy
+        - reindex_vector_db
+        - rollback_version
+    finance:
+      can:
+        - create_payment_link
+        - manage_products
+        - view_payouts
+
+  assignments:
+    javari_core:
+      - reader
+      - editor
+    ops_bot:
+      - operator
+    billing_bot:
+      - finance
+
+approvals:
+  # Any action in this list requires a one-time code from an approver
+  required_for:
+    - run_deploy
+    - rotate_api_keys
+    - change_payment_settings
+    - delete_content
+    - connect_new_oauth
+
+  method: email_code   # or discord_dm, sms_twilio
+  timeout_minutes: 15
+
+budgets:
+  embeddings:
+    hourly_tokens: 500000
+    daily_docs: 1500
+  social_posts:
+    per_day: 30
+  newsletters:
+    per_week: 2
+
+crawl:
+  user_agent: CRAV-JavariBot/1.0 (+contact@craudiovizai.com)
+  obey_robots: true
+  default_rps: 0.5
+  politeness_delay_sec: 10
+
+audit:
+  log_actions: true
+  store_location: /var/log/javari/audit.log
+  redact_secrets: true
