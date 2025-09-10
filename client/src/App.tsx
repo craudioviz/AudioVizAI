@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "./hooks/use-auth";
+import { DomainAuthGuard } from "@/components/ui/domain-auth-guard";
 import HomePage from "@/pages/home-page";
 import AuthPage from "@/pages/auth-page";
 import AvatarChat from "@/pages/avatar-chat";
@@ -31,10 +32,12 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
+        <DomainAuthGuard>
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
+        </DomainAuthGuard>
       </AuthProvider>
     </QueryClientProvider>
   );
