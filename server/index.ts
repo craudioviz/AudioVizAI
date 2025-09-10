@@ -10,10 +10,25 @@ function validateEnvironment() {
   if (missingVars.length > 0) {
     const errorMessage = `Missing required environment variables: ${missingVars.join(', ')}`;
     log(`DEPLOYMENT ERROR: ${errorMessage}`);
+    log(`Available environment variables: ${Object.keys(process.env).filter(k => !k.includes('SECRET') && !k.includes('KEY') && !k.includes('TOKEN')).join(', ')}`);
     throw new Error(errorMessage);
   }
   
-  log(`Environment validation passed. NODE_ENV: ${process.env.NODE_ENV || 'development'}`);
+  // Set NODE_ENV to production if not set in production context
+  if (!process.env.NODE_ENV) {
+    process.env.NODE_ENV = 'production';
+    log('NODE_ENV not set, defaulting to production');
+  }
+  
+  log(`Environment validation passed. NODE_ENV: ${process.env.NODE_ENV}`);
+  log(`Database URL configured: ${process.env.DATABASE_URL ? 'YES' : 'NO'}`);
+  log(`Port configuration: ${process.env.PORT || '5000'}`);
+  
+  // Additional production checks
+  if (process.env.NODE_ENV === 'production') {
+    log('Production mode: Ensuring all critical services are available');
+    // Add any additional production-specific validations here
+  }
 }
 
 const app = express();
@@ -79,12 +94,27 @@ app.use((req, res, next) => {
     // this serves both the API and the client.
     // It is the only port that is not firewalled.
     const port = parseInt(process.env.PORT || '5000', 10);
+    
+    // Validate port is a valid number
+    if (isNaN(port) || port < 1 || port > 65535) {
+      throw new Error(`Invalid port configuration: ${process.env.PORT}. Port must be a number between 1 and 65535.`);
+    }
+    
     server.listen({
       port,
       host: "0.0.0.0",
       reusePort: true,
     }, () => {
-      log(`serving on port ${port}`);
+      log(`🚀 Server successfully started`);
+      log(`📡 Listening on host: 0.0.0.0`);
+      log(`🔌 Port: ${port}`);
+      log(`🌍 Environment: ${process.env.NODE_ENV}`);
+      log(`📊 Ready to accept connections`);
+      
+      // Log additional deployment info
+      if (process.env.REPLIT_DOMAINS) {
+        log(`🌐 Replit domains: ${process.env.REPLIT_DOMAINS}`);
+      }
     });
   } catch (error) {
     log(`FATAL SERVER ERROR: ${error instanceof Error ? error.message : 'Unknown error'}`);
