@@ -7,6 +7,7 @@ import {
 import { insertUserSchema, User as SelectUser, InsertUser } from "@shared/schema";
 import { getQueryFn, apiRequest, queryClient } from "../lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { getAuthRedirect } from "@/lib/domain-config";
 
 type AuthContextType = {
   user: SelectUser | null;
@@ -39,12 +40,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     onSuccess: (user: SelectUser) => {
       queryClient.setQueryData(["/api/user"], user);
       
-      // Redirect based on user type
-      if (user.isAdmin || user.isCreator) {
-        window.location.href = "/dashboard";
+      // Redirect based on domain and user type
+      const redirectUrl = getAuthRedirect(user.isAdmin, user.isCreator);
+      
+      if (redirectUrl.startsWith('http')) {
+        // External redirect
+        window.location.href = redirectUrl;
       } else {
-        // Regular customers go to Javari access
-        window.location.href = "/chat/javari";
+        // Internal redirect
+        window.location.href = redirectUrl;
       }
     },
     onError: (error: Error) => {
